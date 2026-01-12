@@ -1,0 +1,214 @@
+.pageWrapper {
+    min-height: 100vh;
+    background-color: var(--color-bg-black);
+    color: var(--color-text-primary);
+}
+
+.headerSection {
+    margin-bottom: var(--spacing-xxl);
+    text-align: center;
+}
+
+.subTitle {
+    color: var(--color-accent-blue);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-size: 1rem;
+}
+
+.mainTitle {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.2;
+}
+
+.description {
+    color: var(--color-text-secondary);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.stepSection {
+    margin-bottom: var(--spacing-xl);
+}
+
+.stepTitle {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+}
+
+/* Space Selection Grid */
+.spaceGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.spaceButton {
+    position: relative;
+    height: 140px;
+    padding: 0;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.spaceButtonActive {
+    border: 3px solid var(--color-accent-blue);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: translateY(-5px);
+}
+
+.spaceLabel {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+.spaceLabel {
+    font-weight: 600;
+}
+
+/* Style Selection Grid */
+.styleGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.styleButton {
+    position: relative;
+    height: 160px;
+    padding: 0;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.styleButtonActive {
+    border: 3px solid var(--color-accent-blue);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: translateY(-5px);
+}
+
+.styleLabel {
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+/* Generate Button */
+.generateContainer {
+    text-align: center;
+    margin-bottom: var(--spacing-xxl);
+}
+
+.generateButton {
+    padding: 16px 40px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background-color: var(--color-accent-blue);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 20px rgba(43, 76, 140, 0.4);
+}
+
+.generateButtonDisabled {
+    background-color: #333;
+    color: #666;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Result Area */
+.resultContainer {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg-charcoal);
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.resultImage {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.disclaimer {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .mainTitle {
+        font-size: 2rem;
+    }
+
+    .spaceGrid {
+        grid-template-columns: repeat(2, 1fr);
+        /* Force 2 columns on mobile */
+    }
+
+    .styleGrid {
+        grid-template-columns: 1fr;
+        /* 1 column for styles on mobile for better visibility */
+    }
+
+    .styleButton {
+        height: 180px;
+        /* Taller touch target */
+    }
+
+    .generateButton {
+        width: 100%;
+        font-size: 1.1rem;
+    }
+
+    .resultContainer {
+        min-height: 250px;
+    }
+}

@@ -1,0 +1,157 @@
+.serviceSection {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--color-bg-black);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.sectionTitle {
+    font-size: 1rem;
+    color: var(--color-accent-blue);
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+}
+
+.sectionDesc {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: var(--spacing-xl);
+    color: var(--color-text-primary);
+}
+
+.grid {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+}
+
+.card {
+    flex: 1;
+    background-color: var(--color-bg-charcoal);
+    padding: var(--spacing-xl);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+}
+
+.cardHeader {
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: var(--spacing-md);
+}
+
+.cardTitle {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: var(--spacing-xs);
+    letter-spacing: 0.05em;
+}
+
+.carpentry .cardTitle {
+    color: #8B4513;
+    /* Wood hint, technically filtered to fit dark theme usually but keeping distinct */
+    color: var(--color-text-primary);
+}
+
+.tile .cardTitle {
+    color: var(--color-text-primary);
+}
+
+.cardSub {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.list li {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+}
+
+.list li::before {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-accent-blue);
+    margin-right: var(--spacing-md);
+    border-radius: 50%;
+}
+
+/* Integration Center */
+.integration {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 var(--spacing-md);
+    position: relative;
+}
+
+.plusIcon {
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--spacing-md);
+}
+
+.integrationBox {
+    background-color: var(--color-accent-navy);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    min-width: 200px;
+    text-align: center;
+}
+
+.integrationTitle {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: var(--spacing-md);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: var(--spacing-sm);
+}
+
+.integrationList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.integrationList li {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 768px) {
+    .grid {
+        flex-direction: column;
+        gap: var(--spacing-xl);
+    }
+
+    .integration {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .plusIcon {
+        transform: rotate(90deg);
+        /* Or just keep plus */
+    }
+}

@@ -1,0 +1,70 @@
+.processSection {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--color-bg-black);
+}
+
+.sectionTitle {
+    font-size: 1rem;
+    color: var(--color-text-tertiary);
+    /* Minimal label style */
+    margin-bottom: var(--spacing-xl);
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+
+.flowGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
+    position: relative;
+}
+
+.stepCard {
+    background-color: var(--color-bg-charcoal);
+    padding: var(--spacing-lg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    position: relative;
+    transition: border-color var(--transition-fast);
+}
+
+.stepCard:hover {
+    border-color: var(--color-text-primary);
+}
+
+.stepNum {
+    font-size: 0.8rem;
+    color: var(--color-accent-blue);
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+}
+
+.stepTitle {
+    font-size: 1.1rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-sm);
+    word-break: keep-all;
+}
+
+.stepDesc {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+}
+
+.arrow {
+    display: none;
+    /* Minimal design often omits literal arrows in favor of layout hint, but can enable if needed */
+}
+
+@media (max-width: 768px) {
+    .flowGrid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .stepCard {
+        border: 1px solid var(--color-border);
+        padding: var(--spacing-lg);
+    }
+}
