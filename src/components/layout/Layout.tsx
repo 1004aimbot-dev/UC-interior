@@ -24,7 +24,7 @@ const Layout: React.FC = () => {
     return (
         <div className={styles.layoutWrapper}>
             <header className={styles.header}>
-                <Link to="/" className={styles.logo} onClick={closeMenu}>U Craft INTERIOR</Link>
+                <Link to="/" className={styles.logo} onClick={closeMenu}>Y2K INTERIOR</Link>
 
                 {/* Desktop Navigation */}
                 <nav className={styles.desktopNav} style={{ marginLeft: 'auto', gap: 'var(--spacing-lg)' }}>

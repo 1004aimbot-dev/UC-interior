@@ -37,7 +37,7 @@ const TrustCards: React.FC = () => {
     return (
         <section className={styles.trustSection}>
             <div className="container">
-                <h2 className={styles.sectionTitle}>WHY U Craft INTERIOR?</h2>
+                <h2 className={styles.sectionTitle}>WHY Y2K INTERIOR?</h2>
                 <div className={styles.grid}>
                     {trustPoints.map((point) => (
                         <div key={point.id} className={styles.card}>

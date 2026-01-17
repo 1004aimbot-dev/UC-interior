@@ -42,7 +42,7 @@ const About: React.FC = () => {
                                 <div style={{ marginBottom: '30px', overflow: 'hidden', borderRadius: '4px' }}>
                                     <img
                                         src="/src/assets/images/about_team_silhouette.png"
-                                        alt="UC Brothers Team"
+                                        alt="Y2K Brothers Team"
                                         style={{ width: '100%', maxHeight: '400px', objectFit: 'cover', filter: 'grayscale(30%)' }}
                                     />
                                 </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 import { useTranslation } from 'react-i18next';
 import styles from './Layout.module.css';
+import LanguageSwitcher from '../ui/LanguageSwitcher';
 
 const MobileHeader: React.FC = () => {
     const { t } = useTranslation();
@@ -20,7 +21,7 @@ const MobileHeader: React.FC = () => {
                 onClick={closeMenu}
                 style={{ cursor: 'pointer' }}
             >
-                U Craft INTERIOR
+                Y2K INTERIOR
             </ScrollLink>
 
             <button
@@ -30,6 +31,11 @@ const MobileHeader: React.FC = () => {
             >
                 ☰
             </button>
+
+            {/* Language Switcher - Centered */}
+            <div style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
+                <LanguageSwitcher />
+            </div>
 
             {/* Mobile Menu Overlay */}
             <div className={`${styles.mobileMenuOverlay} ${isMenuOpen ? styles.mobileMenuOpen : ''}`}>

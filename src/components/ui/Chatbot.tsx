@@ -11,7 +11,7 @@ interface Message {
 const Chatbot: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState<Message[]>([
-        { id: 1, text: "안녕하세요 U Craft Interior입니다.\n무엇을 도와드릴까요?", isUser: false }
+        { id: 1, text: "안녕하세요 Y2K Interior입니다.\n무엇을 도와드릴까요?", isUser: false }
     ]);
     const navigate = useNavigate();
     const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -40,7 +40,7 @@ const Chatbot: React.FC = () => {
                     botResponse = "저희는 '평당 얼마' 식의 견적을 내지 않습니다. 현장 상태에 따라 필요한 자재와 인건비(품)를 산출하는 '실비 정산' 방식을 추천드립니다. 정확한 것은 현장 실측이 필요합니다.";
                     break;
                 case "직접 시공하시나요?":
-                    botResponse = "네, 그렇습니다. 목공과 타일 두 핵심 공정을 외주 없이 UC 형제가 직접 시공하여, 책임감 있는 마감을 보장합니다.";
+                    botResponse = "네, 그렇습니다. 목공과 타일 두 핵심 공정을 외주 없이 Y2K 형제가 직접 시공하여, 책임감 있는 마감을 보장합니다.";
                     break;
                 case "시공 가능 지역은?":
                     botResponse = "현재 서울 전 지역 및 경기 일부 지역(성남, 하남, 용인 등) 위주로 시공하고 있습니다. 거리가 먼 경우 별도의 출장비가 발생할 수 있습니다.";
@@ -159,12 +159,19 @@ const Chatbot: React.FC = () => {
                             gap: '10px'
                         }}>
                             <div style={{
-                                width: '10px',
-                                height: '10px',
-                                borderRadius: '50%',
-                                backgroundColor: '#4CAF50'
-                            }} />
-                            <span style={{ fontWeight: 'bold', color: '#fff' }}>UC Bot</span>
+                                width: '100%',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '10px'
+                            }}>
+                                <div style={{
+                                    width: '10px',
+                                    height: '10px',
+                                    borderRadius: '50%',
+                                    backgroundColor: '#4CAF50'
+                                }} />
+                                <span style={{ fontWeight: 'bold', color: '#fff' }}>Y2K Bot</span>
+                            </div>
                         </div>
 
                         {/* Messages Area */}

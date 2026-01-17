@@ -2,8 +2,11 @@ import React from 'react';
 import { caseStudies } from '../data/cases';
 import CaseCard from '../components/cases/CaseCard';
 import ScrollReveal from '../components/ui/ScrollReveal';
+import { useTranslation } from 'react-i18next';
 
 const WorkCases: React.FC = () => {
+    const { t } = useTranslation();
+
     return (
         <div className="bg-concrete-wrapper" style={{
             backgroundImage: `url('/src/assets/images/bg_construction_blur.png')`,
@@ -16,13 +19,13 @@ const WorkCases: React.FC = () => {
                 <div className="container">
                     <div className="text-center" style={{ marginBottom: 'var(--spacing-xxl)' }}>
                         <ScrollReveal width="100%">
-                            <h1 style={{ fontSize: '2.5rem', marginBottom: 'var(--spacing-md)' }}>WORK CASES</h1>
+                            <h1 style={{ fontSize: '2.5rem', marginBottom: 'var(--spacing-md)' }}>{t('cases_page.title')}</h1>
                         </ScrollReveal>
                         <ScrollReveal width="100%" delay={0.2}>
-                            <p style={{ color: 'var(--color-text-secondary)' }}>
-                                UC 형제가 직접 시공한 현장의 기록입니다.<br />
-                                화려한 사진보다는, 공정의 정확함과 마감의 디테일을 확인해 주세요.
-                            </p>
+                            <p
+                                style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}
+                                dangerouslySetInnerHTML={{ __html: t('cases_page.description') }}
+                            />
                         </ScrollReveal>
                     </div>
 

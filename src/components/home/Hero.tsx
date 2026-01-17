@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
         <section className={styles.heroSection}>
             {/* Background Image Layer */}
             <div className={styles.heroBg}>
-                <img src={heroBg} alt="U Craft Interior Construction Detail" className={styles.heroBgImage} />
+                <img src={heroBg} alt="Y2K Interior Construction Detail" className={styles.heroBgImage} />
                 <div className={styles.overlay}></div>
             </div>
 
