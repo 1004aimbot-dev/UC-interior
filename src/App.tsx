@@ -1,4 +1,5 @@
 import { Routes, Route, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Layout from './components/layout/Layout';
 
 // Placeholder Pages - Will implement these next
@@ -8,6 +9,7 @@ import ServiceStructure from './components/home/ServiceStructure';
 import ProcessFlow from './components/home/ProcessFlow';
 
 const Home = () => {
+  const { t } = useTranslation();
 
   return (
     <div className="home-page">
@@ -17,8 +19,8 @@ const Home = () => {
       <ProcessFlow />
       <div className="container section-padding">
         <div className="text-center" style={{ marginTop: '40px' }}>
-          <h2 style={{ marginBottom: '20px' }}>준비되셨나요?</h2>
-          <Link to="/consultation" className="btn btn-primary" style={{ display: 'inline-block', textDecoration: 'none' }}> 상담 신청하기 </Link>
+          <h2 style={{ marginBottom: '20px' }}>{t('cta.ready')}</h2>
+          <Link to="/consultation" className="btn btn-primary" style={{ display: 'inline-block', textDecoration: 'none' }}> {t('cta.apply')} </Link>
         </div>
       </div>
     </div>

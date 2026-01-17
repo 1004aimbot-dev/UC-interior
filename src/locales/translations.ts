@@ -44,7 +44,21 @@ export const resources = {
                 carpentry_sub: "목공 | 구조와 골조",
                 tile: "TILE",
                 tile_sub: "타일 | 마감과 표면",
-                integration: "공정 통합 포인트"
+                integration: "공정 통합 포인트",
+                items: {
+                    walls: "벽체 (Walls)",
+                    ceilings: "천장 (Ceilings)",
+                    structure: "구조 (Structure)",
+                    guidelines: "기준선 (Guidelines)",
+                    wall_tiling: "벽 (Wall Tiling)",
+                    floor_tiling: "바닥 (Floor Tiling)",
+                    bathroom: "욕실 (Bathroom)",
+                    finishing: "마감 (Finishing)",
+                    level_diff: "단차",
+                    contact_point: "접점",
+                    grout: "줄눈",
+                    waterproofing: "방수"
+                }
             },
             scope: {
                 title: "CONSTRUCTION SCOPE",
@@ -131,6 +145,74 @@ export const resources = {
             cases_page: {
                 title: "WORK CASES",
                 description: "Y2K 형제가 직접 시공한 현장의 기록입니다.<br />화려한 사진보다는, 공정의 정확함과 마감의 디테일을 확인해 주세요."
+            },
+            cases_data: {
+                project01: {
+                    title: "성수동 H 아파트 34평형",
+                    location: "서울 성동구 성수동",
+                    summary: "구축 아파트의 불규칙한 벽체를 목공으로 바로잡고, 대형 포세린 타일로 마감하여 모던한 갤러리 같은 공간을 연출했습니다.",
+                    condition: "30년 된 구축 아파트로, 벽체 수직 수평이 심하게 맞지 않았습니다. 특히 욕실 확장이 잘못되어 누수 위험이 있었고, 거실 바닥 단차가 30mm 이상 차이나는 악조건이었습니다.",
+                    design: "기존 미장면을 신뢰할 수 없어, 목공 가벽을 신설해 완벽한 수직면을 만들기로 결정했습니다. 바닥은 전체 철거 후 수평 몰탈 작업을 선행하고, 타일 마감을 위한 기준선을 복도 중심으로 재설정했습니다.",
+                    carpentry: "전체 천장 평탄화 및 무문선 히든 도어 작업을 진행했습니다. 특히 주방과 거실이 이어지는 라인에 라인 조명 박스를 매립하여 구조적 간결함을 더했습니다.",
+                    tile: "600x1200 대형 포세린 타일을 졸리컷(면치기) 시공으로 마감했습니다. 목공에서 잡아준 칼각 코너에 맞춰 타일 라인을 1mm 오차 범위 내로 정렬했습니다.",
+                    finish: "도배와 타일이 만나는 지점의 마이너스 몰딩 처리, 욕실 젠다이 졸리컷 라인 정렬 상태를 중점적으로 검수했습니다."
+                },
+                project02: {
+                    title: "판교 상가 쇼룸 리모델링",
+                    location: "경기 성남시 판교동",
+                    summary: "상업 공간의 높은 층고를 활용한 아치형 목공 구조물과 텍스처 타일의 조화.",
+                    condition: "배관이 노출된 높은 천장과 불규칙한 기둥 배치로 공간 활용이 어려웠습니다. 클라이언트는 제품이 돋보이는 차분한 배경을 원했습니다.",
+                    design: "기둥을 감싸는 라운드 벽체를 신설하여 동선을 유도하고, 거친 질감의 타일로 바닥을 눌러주어 안정감을 주도록 설계했습니다.",
+                    carpentry: "곡선형 가벽(R가벽) 시공 및 디스플레이 선반 매립 작업. 하중을 견뎌야 하는 선반 내부에 금속 보강 작업을 병행했습니다.",
+                    tile: "1200x1200 대형 텍스처 타일을 사용. 곡선 벽체와 바닥이 만나는 지점의 정밀 재단 시공이 핵심이었습니다.",
+                    finish: "곡선 부위의 도장 마감 퀄리티와 타일 메지(줄눈)의 톤 앤 매너 일체화에 집중했습니다."
+                }
+            },
+            ai_preview_page: {
+                subtitle: "AI 시뮬레이션",
+                title: "AI 인테리어 미리보기",
+                description: "공간과 스타일을 선택하여 AI로 인테리어를 미리 확인해보세요.",
+                step1: "01. 공간 선택",
+                step2: "02. 스타일 선택",
+                generate_btn: "AI 미리보기 생성",
+                generating: "생성 중...",
+                disclaimer: "* 이 이미지는 AI 시뮬레이션 결과이며, 실제 시공과는 차이가 있을 수 있습니다.",
+                spaces: {
+                    living: "거실",
+                    kitchen: "주방",
+                    bedroom: "침실",
+                    bathroom: "욕실"
+                },
+                styles: {
+                    modern: "모던 & 시크",
+                    minimal: "미니멀리스트",
+                    wood: "코지 우드",
+                    luxury: "하이엔드 럭셔리",
+                    industrial: "인더스트리얼",
+                    classic: "클래식 엘레강스",
+                    natural: "내추럴 젠",
+                    scandinavian: "스칸디나비안",
+                    midcentury: "미드센추리 모던",
+                    artdeco: "아트 데코"
+                }
+            },
+            cta: {
+                ready: "준비되셨나요?",
+                apply: "상담 신청하기"
+            },
+            case_detail: {
+                challenge_solution: "Challenge & Solution",
+                condition_title: "CONDITION (현장 조건)",
+                design_plan_title: "DESIGN & PLAN (설계 의도)",
+                back_to_list: "← 목록으로 돌아가기",
+                construction_detail: "Construction Detail",
+                carpentry: "목공 (Carpentry)",
+                tile: "타일 (Tile)",
+                finish_check: "마감 (Finish Check)",
+                project_transformation: "PROJECT TRANSFORMATION",
+                slider_instruction: "* 슬라이더를 움직여 시공 전후 변화를 확인해보세요.",
+                detail_view: "DETAIL VIEW",
+                project_not_found: "프로젝트를 찾을 수 없습니다."
             }
         }
     },
@@ -168,7 +250,21 @@ export const resources = {
                 carpentry_sub: "Carpentry | Structure",
                 tile: "TILE",
                 tile_sub: "Tile | Finish",
-                integration: "Integration Point"
+                integration: "Integration Point",
+                items: {
+                    walls: "Walls",
+                    ceilings: "Ceilings",
+                    structure: "Structure",
+                    guidelines: "Guidelines",
+                    wall_tiling: "Wall Tiling",
+                    floor_tiling: "Floor Tiling",
+                    bathroom: "Bathroom",
+                    finishing: "Finishing",
+                    level_diff: "Level Difference",
+                    contact_point: "Contact Point",
+                    grout: "Grout",
+                    waterproofing: "Waterproofing"
+                }
             },
             process: {
                 title: "PROCESS FLOW",
@@ -251,7 +347,7 @@ export const resources = {
                     message: "Inquiry Content",
                     message_placeholder: "Please write down any questions or additional comments.",
                     submit: "Submit",
-                    submitting: "Sending..."
+                    submitting: "전송 중..."
                 },
                 info: "* We will contact you within 24 hours after checking the content sent.<br />* It may be difficult to talk during on-site work, so please leave a text message.",
                 alerts: {
@@ -266,6 +362,74 @@ export const resources = {
             cases_page: {
                 title: "WORK CASES",
                 description: "Records of sites directly constructed by Y2K brothers.<br />Rather than flashy photos, please check the accuracy of the process and the detail of the finish."
+            },
+            cases_data: {
+                project01: {
+                    title: "Seongsu-dong H Apartment 34py",
+                    location: "Seongsu-dong, Seongdong-gu, Seoul",
+                    summary: "Corrected irregular walls of an old apartment with carpentry and finished with large porcelain tiles to create a modern gallery-like space.",
+                    condition: "A 30-year-old apartment with severely misaligned walls. Specifically, the bathroom extension was faulty with leak risks, and the living room floor had a level difference of over 30mm.",
+                    design: "Since the existing plaster surface was unreliable, we decided to build new carpentry walls to create perfect vertical surfaces. We leveled the floor after full demolition and reset the guidelines for tiling centered on the hallway.",
+                    carpentry: "Performed ceiling leveling and hidden door installation. Embedded line lighting boxes in the kitchen-living room connection for structural simplicity.",
+                    tile: "Finished with 600x1200 large porcelain tiles using Jolly Cut. Aligned tile lines within 1mm error tolerance to match the sharp corners set by carpentry.",
+                    finish: "Focused on minus molding where wallpaper meets tile, and the alignment of the bathroom shelf Jolly Cut lines."
+                },
+                project02: {
+                    title: "Pangyo Commercial Showroom Remodeling",
+                    location: "Pangyo-dong, Seongnam-si, Gyeonggi-do",
+                    summary: "Harmony of arched carpentry structures utilizing high ceilings and textured tiles in a commercial space.",
+                    condition: "High ceilings with exposed piping and irregular pillar placement made space utilization difficult. The client wanted a calm background that highlights the products.",
+                    design: "Designed round walls wrapping the pillars to guide flow and used rough-textured tiles on the floor to provide stability.",
+                    carpentry: "Constructed curved walls (R-walls) and embedded display shelves. Reinforced shelves with metal to withstand load.",
+                    tile: "Used 1200x1200 large textured tiles. Precise cutting where curved walls meet the floor was key.",
+                    finish: "Focused on the paint finish quality of curved areas and unifying the tone and manner of tile grout."
+                }
+            },
+            ai_preview_page: {
+                subtitle: "AI Simulation",
+                title: "AI Interior Preview",
+                description: "Select a space and style to preview the interior with AI.",
+                step1: "01. Select Space",
+                step2: "02. Select Style",
+                generate_btn: "Generate AI Preview",
+                generating: "생성 중...",
+                disclaimer: "* This image is an AI simulation result and may differ from actual construction.",
+                spaces: {
+                    living: "Living Room",
+                    kitchen: "Kitchen",
+                    bedroom: "Bedroom",
+                    bathroom: "Bathroom"
+                },
+                styles: {
+                    modern: "Modern & Chic",
+                    minimal: "Minimalist",
+                    wood: "Cozy Wood",
+                    luxury: "High-End Luxury",
+                    industrial: "Industrial",
+                    classic: "Classic Elegance",
+                    natural: "Natural Zen",
+                    scandinavian: "Scandinavian",
+                    midcentury: "Mid-Century Modern",
+                    artdeco: "Art Deco"
+                }
+            },
+            cta: {
+                ready: "Are you ready?",
+                apply: "Request Consultation"
+            },
+            case_detail: {
+                challenge_solution: "Challenge & Solution",
+                condition_title: "CONDITION",
+                design_plan_title: "DESIGN & PLAN",
+                back_to_list: "← Back to List",
+                construction_detail: "Construction Detail",
+                carpentry: "CARPENTRY",
+                tile: "TILE",
+                finish_check: "FINISH CHECK",
+                project_transformation: "PROJECT TRANSFORMATION",
+                slider_instruction: "* Move the slider to see the changes.",
+                detail_view: "DETAIL VIEW",
+                project_not_found: "Project Not Found"
             }
         }
     },
@@ -303,7 +467,21 @@ export const resources = {
                 carpentry_sub: "大工 | 構造と骨組み",
                 tile: "TILE",
                 tile_sub: "タイル | 仕上げと表面",
-                integration: "結合ポイント"
+                integration: "結合ポイント",
+                items: {
+                    walls: "壁 (Walls)",
+                    ceilings: "天井 (Ceilings)",
+                    structure: "構造 (Structure)",
+                    guidelines: "基準線 (Guidelines)",
+                    wall_tiling: "壁 (Wall Tiling)",
+                    floor_tiling: "床 (Floor Tiling)",
+                    bathroom: "浴室 (Bathroom)",
+                    finishing: "仕上げ (Finish)",
+                    level_diff: "段差",
+                    contact_point: "接点",
+                    grout: "目地",
+                    waterproofing: "防水"
+                }
             },
             process: {
                 title: "PROCESS FLOW",
@@ -386,7 +564,7 @@ export const resources = {
                     message: "お問い合わせ内容",
                     message_placeholder: "ご質問や追加でお伝えしたことがあればご記入ください。",
                     submit: "申請する",
-                    submitting: "送信中..."
+                    submitting: "전송 중..."
                 },
                 info: "* 送信いただいた内容は確認後24時間以内にご連絡いたします。<br />* 現場作業中は通話が難しいため、メッセージを残していただければ確認いたします。",
                 alerts: {
@@ -401,6 +579,74 @@ export const resources = {
             cases_page: {
                 title: "WORK CASES",
                 description: "Y2K兄弟が直接施工した現場の記録です。<br />華やかな写真よりは、工程の正確さと仕上げのディテールをご確認ください。"
+            },
+            cases_data: {
+                project01: {
+                    title: "聖水洞 Hアパート 34坪型",
+                    location: "ソウル城東区聖水洞",
+                    summary: "古いアパートの不規則な壁体を大工工事で正し、大型ポセリンタイルで仕上げてモダンなギャラリーのような空間を演出しました。",
+                    condition: "築30年の古いアパートで、壁の垂直水平がひどく合っていませんでした。特に浴室の拡張が誤っており漏水のリスクがあり、リビングの床の段差が30mm以上ある悪条件でした。",
+                    design: "既存の左官面が信頼できないため、大工の仮壁を新設して完璧な垂直面を作ることにしました。床は全面撤去後に水平モルタル作業を先行し、タイル仕上げのための基準線を廊下中心に再設定しました。",
+                    carpentry: "天井全体の平坦化および隠しドア作業を行いました。特にキッチンとリビングがつながるラインにライン照明ボックスを埋め込み、構造的な簡潔さを加えました。",
+                    tile: "600x1200の大型ポセリンタイルをジョリーカットで仕上げました。大工が決めた鋭角なコーナーに合わせてタイルラインを1mmの誤差範囲内で整列させました。",
+                    finish: "壁紙とタイルが接する地点のマイナスモールディング処理、浴室の棚のジョリーカットラインの整列状態を重点的に検査しました。"
+                },
+                project02: {
+                    title: "板橋 商業ショールーム リモデリング",
+                    location: "京畿道城南市板橋洞",
+                    summary: "商業空間の高い天井を活用したアーチ型の大工構造物とテクスチャタイルの調和。",
+                    condition: "配管が露出した高い天井と不規則な柱の配置で空間活用が困難でした。クライアントは製品が引き立つ落ち着いた背景を望んでいました。",
+                    design: "柱を包むラウンド壁体を新設して動線を誘導し、粗い質感のタイルで床を押さえて安定感を与えるよう設計しました。",
+                    carpentry: "曲線型仮壁(R壁)施工およびディスプレイ棚の埋め込み作業。荷重に耐える必要がある棚の内部に金属補強作業を並行しました。",
+                    tile: "1200x1200の大型テクスチャタイルを使用。曲線壁体と床が接する地点の精密裁断施工が核心でした。",
+                    finish: "曲線部位の塗装仕上げのクオリティとタイル目地のトーン＆マナーの一体化に集中しました。"
+                }
+            },
+            ai_preview_page: {
+                subtitle: "AIシミュレーション",
+                title: "AIインテリアプレビュー",
+                description: "空間とスタイルを選択して、AIでインテリアを事前に確認してみてください。",
+                step1: "01. 空間選択",
+                step2: "02. スタイル選択",
+                generate_btn: "AIプレビュー生成",
+                generating: "생성 중...",
+                disclaimer: "* この画像はAIシミュレーション結果であり、実際の施工とは異なる場合があります。",
+                spaces: {
+                    living: "リビング",
+                    kitchen: "キッチン",
+                    bedroom: "寝室",
+                    bathroom: "浴室"
+                },
+                styles: {
+                    modern: "モダン＆シック",
+                    minimal: "ミニマリスト",
+                    wood: "コージーウッド",
+                    luxury: "ハイエンドラグジュアリー",
+                    industrial: "インダストリアル",
+                    classic: "クラシックエレガンス",
+                    natural: "ナチュラル禅",
+                    scandinavian: "スカンジナビアン",
+                    midcentury: "ミッドセンチュリーモダン",
+                    artdeco: "アールデコ"
+                }
+            },
+            cta: {
+                ready: "準備はできましたか？",
+                apply: "相談を申し込む"
+            },
+            case_detail: {
+                challenge_solution: "Challenge & Solution",
+                condition_title: "CONDITION (現場条件)",
+                design_plan_title: "DESIGN & PLAN (設計意図)",
+                back_to_list: "← 一覧に戻る",
+                construction_detail: "Construction Detail",
+                carpentry: "大工 (Carpentry)",
+                tile: "タイル (Tile)",
+                finish_check: "仕上げ (Finish Check)",
+                project_transformation: "PROJECT TRANSFORMATION",
+                slider_instruction: "* スライダーを動かして施工前後の変化を確認してください。",
+                detail_view: "DETAIL VIEW",
+                project_not_found: "プロジェクトが見つかりません"
             }
         }
     },
@@ -438,7 +684,21 @@ export const resources = {
                 carpentry_sub: "木工 | 结构与骨架",
                 tile: "TILE",
                 tile_sub: "瓷砖 | 装修与表面",
-                integration: "结合点"
+                integration: "结合点",
+                items: {
+                    walls: "墙体 (Walls)",
+                    ceilings: "天花板 (Ceilings)",
+                    structure: "结构 (Structure)",
+                    guidelines: "基准线 (Guidelines)",
+                    wall_tiling: "墙面 (Wall Tiling)",
+                    floor_tiling: "地面 (Floor Tiling)",
+                    bathroom: "浴室 (Bathroom)",
+                    finishing: "收尾 (Finishing)",
+                    level_diff: "高低差",
+                    contact_point: "接点",
+                    grout: "填缝",
+                    waterproofing: "防水"
+                }
             },
             process: {
                 title: "PROCESS FLOW",
@@ -521,7 +781,7 @@ export const resources = {
                     message: "咨询内容",
                     message_placeholder: "如有疑问或补充说明，请填写。",
                     submit: "申请",
-                    submitting: "发送中..."
+                    submitting: "전송 중..."
                 },
                 info: "* 发送的内容确认后，我们将在24小时内联系您。<br />* 现场工作中可能难以通话，请留言，我们会确认。",
                 alerts: {
@@ -536,6 +796,74 @@ export const resources = {
             cases_page: {
                 title: "WORK CASES",
                 description: "这是Y2K兄弟直接施工现场的记录。<br />比起华丽的照片，请确认工程的准确度和装修的细节。"
+            },
+            cases_data: {
+                project01: {
+                    title: "圣水洞 H公寓 34坪型",
+                    location: "首尔城东区圣水洞",
+                    summary: "用木工矫正旧公寓不规则的墙体，用大型抛光砖收尾，营造出現代画廊般的空间。",
+                    condition: "这是有30年历史的旧公寓，墙体垂直水平严重不符。特别是浴室扩建错误，有漏水风险，客厅地面高低差超过30mm，条件恶劣。",
+                    design: "由于无法信任现有的抹灰面，决定新建木工假墙，制作完美的垂直面。地面全部拆除后先行进行水平砂浆作业，并将瓷砖收尾的基准线重新设定在走廊中心。",
+                    carpentry: "进行了整体天花板平整化及隐形门作业。特別是在厨房和客厅连接的线条上埋入线条照明盒，增加了结构的简洁性。",
+                    tile: "用600x1200大型抛光砖进行倒角施工收尾。配合木工确定的锐角角落，将瓷砖线条排列在1mm误差范围内。",
+                    finish: "重点检查了壁纸和瓷砖相接处的负模制处理、浴室架子倒角线的排列状态。"
+                },
+                project02: {
+                    title: "板桥 商业陈列室 改造",
+                    location: "京畿道城南市板桥洞",
+                    summary: "利用商业空间高层高的拱形木工结构物和纹理瓷砖的和谐。",
+                    condition: "管道暴露的高天花板和不规则的柱子布置使得空间利用变得困难。客户希望有一个能突显产品的沉稳背景。",
+                    design: "新设包围柱子的圆形墙体以引导动线，并用粗糙质感的瓷砖压住地面，设计成给予安定感。",
+                    carpentry: "曲线型假墙(R墙)施工及陈列架预埋作业。在必须承受荷载的架子内部并行进行了金属加固作业。",
+                    tile: "使用了1200x1200大型纹理瓷砖。曲线墙体和地面相接处的精密裁剪施工是核心。",
+                    finish: "集中于曲线部位的涂装收尾质量和瓷砖填缝的色调统一。"
+                }
+            },
+            ai_preview_page: {
+                subtitle: "AI 模拟",
+                title: "AI 室内预览",
+                description: "选择空间和风格，通过 AI 提前确认室内装修效果。",
+                step1: "01. 选择空间",
+                step2: "02. 选择风格",
+                generate_btn: "生成 AI 预览",
+                generating: "생성 중...",
+                disclaimer: "* 此图像是 AI 模拟结果，可能与实际施工存在差异。",
+                spaces: {
+                    living: "客厅",
+                    kitchen: "厨房",
+                    bedroom: "卧室",
+                    bathroom: "浴室"
+                },
+                styles: {
+                    modern: "现代 & 时尚",
+                    minimal: "极简主义",
+                    wood: "舒适木质",
+                    luxury: "高端奢华",
+                    industrial: "工业风",
+                    classic: "古典优雅",
+                    natural: "自然禅意",
+                    scandinavian: "斯堪的纳维亚",
+                    midcentury: "世纪中叶现代",
+                    artdeco: "装饰艺术"
+                }
+            },
+            cta: {
+                ready: "准备好了吗？",
+                apply: "申请咨询"
+            },
+            case_detail: {
+                challenge_solution: "Challenge & Solution",
+                condition_title: "CONDITION (现场条件)",
+                design_plan_title: "DESIGN & PLAN (设计意图)",
+                back_to_list: "← 返回列表",
+                construction_detail: "Construction Detail",
+                carpentry: "木工 (Carpentry)",
+                tile: "瓷砖 (Tile)",
+                finish_check: "收尾 (Finish Check)",
+                project_transformation: "PROJECT TRANSFORMATION",
+                slider_instruction: "* 移动滑块查看施工前后的变化。",
+                detail_view: "DETAIL VIEW",
+                project_not_found: "未找到项目"
             }
         }
     },
@@ -573,7 +901,21 @@ export const resources = {
                 carpentry_sub: "Mộc | Kết cấu",
                 tile: "TILE",
                 tile_sub: "Gạch | Hoàn thiện",
-                integration: "Điểm kết nối"
+                integration: "Điểm kết nối",
+                items: {
+                    walls: "Tường (Walls)",
+                    ceilings: "Trần (Ceilings)",
+                    structure: "Kết cấu (Structure)",
+                    guidelines: "Đường chuẩn (Guidelines)",
+                    wall_tiling: "Tường (Wall Tiling)",
+                    floor_tiling: "Sàn (Floor Tiling)",
+                    bathroom: "Phòng tắm (Bathroom)",
+                    finishing: "Hoàn thiện (Finishing)",
+                    level_diff: "Độ cao",
+                    contact_point: "Tiếp điểm",
+                    grout: "Ron",
+                    waterproofing: "Chống thấm"
+                }
             },
             process: {
                 title: "PROCESS FLOW",
@@ -656,7 +998,7 @@ export const resources = {
                     message: "Nội dung tư vấn",
                     message_placeholder: "Vui lòng ghi lại bất kỳ câu hỏi hoặc ý kiến bổ sung nào.",
                     submit: "Gửi đăng ký",
-                    submitting: "Đang gửi..."
+                    submitting: "전송 중..."
                 },
                 info: "* Chúng tôi sẽ liên hệ trong vòng 24 giờ sau khi kiểm tra nội dung bạn gửi.<br />* Có thể khó nghe điện thoại trong khi làm việc tại hiện trường, vì vậy vui lòng để lại tin nhắn.",
                 alerts: {
@@ -671,6 +1013,74 @@ export const resources = {
             cases_page: {
                 title: "WORK CASES",
                 description: "Đây là ghi chép về các công trình do anh em Y2K trực tiếp thi công.<br />Thay vì những bức ảnh hào nhoáng, hãy kiểm tra độ chính xác của quy trình và chi tiết hoàn thiện."
+            },
+            cases_data: {
+                project01: {
+                    title: "Căn hộ H Seongsu-dong 34 pyeong",
+                    location: "Seongsu-dong, Seongdong-gu, Seoul",
+                    summary: "Chỉnh sửa các bức tường không đều của căn hộ cũ bằng mộc và hoàn thiện bằng gạch khổ lớn để tạo ra không gian giống như phòng trưng bày hiện đại.",
+                    condition: "Căn hộ cũ 30 năm tuổi, tường bị lệch nghiêm trọng. Đặc biệt, việc mở rộng phòng tắm bị lỗi có nguy cơ rò rỉ, và sàn phòng khách chênh lệch hơn 30mm.",
+                    design: "Vì không thể tin tưởng vào bề mặt trát vữa hiện có, chúng tôi quyết định xây dựng tường giả mộc mới để tạo ra bề mặt thẳng đứng hoàn hảo. Sàn nhà được san phẳng sau khi phá dỡ toàn bộ, và đường chuẩn cho việc ốp lát được thiết lập lại ở trung tâm hành lang.",
+                    carpentry: "Thực hiện làm phẳng trần và lắp đặt cửa ẩn. Đặc biệt, hộp đèn led dây được chôn trong đường nối giữa bếp và phòng khách để tăng tính đơn giản về cấu trúc.",
+                    tile: "Hoàn thiện bằng gạch khổ lớn 600x1200 với kỹ thuật Jolly Cut. Căn chỉnh đường gạch trong phạm vi sai số 1mm để khớp với các góc sắc nét do mộc tạo ra.",
+                    finish: "Tập trung kiểm tra xử lý nẹp âm nơi giấy dán tường gặp gạch, và trạng thái căn chỉnh đường Jolly Cut của kệ phòng tắm."
+                },
+                project02: {
+                    title: "Cải tạo Showroom Thương mại Pangyo",
+                    location: "Pangyo-dong, Seongnam-si, Gyeonggi-do",
+                    summary: "Sự hài hòa của cấu trúc mộc hình vòm tận dụng trần cao của không gian thương mại và gạch có kết cấu.",
+                    condition: "Trần cao với đường ống lộ ra và bố trí cột không đều khiến việc sử dụng không gian trở nên khó khăn. Khách hàng muốn một nền tảng trầm lắng làm nổi bật sản phẩm.",
+                    design: "Thiết kế các bức tường tròn bao quanh cột để dẫn hướng luồng di chuyển và sử dụng gạch có kết cấu thô trên sàn để mang lại cảm giác ổn định.",
+                    carpentry: "Thi công tường cong (tường R) và lắp đặt kệ trưng bày âm tường. Gia cố kim loại bên trong kệ để chịu tải.",
+                    tile: "Sử dụng gạch có kết cấu khổ lớn 1200x1200. Việc cắt chính xác nơi tường cong gặp sàn là cốt lõi.",
+                    finish: "Tập trung vào chất lượng hoàn thiện sơn của các khu vực cong và sự đồng nhất về tông màu của ron gạch."
+                }
+            },
+            ai_preview_page: {
+                subtitle: "Mô phỏng AI",
+                title: "Xem trước nội thất AI",
+                description: "Chọn không gian và phong cách để xem trước nội thất bằng AI.",
+                step1: "01. Chọn không gian",
+                step2: "02. Chọn phong cách",
+                generate_btn: "Tạo xem trước AI",
+                generating: "생성 중...",
+                disclaimer: "* Hình ảnh này là kết quả mô phỏng AI và có thể khác với thi công thực tế.",
+                spaces: {
+                    living: "Phòng khách",
+                    kitchen: "Nhà bếp",
+                    bedroom: "Phòng ngủ",
+                    bathroom: "Phòng tắm"
+                },
+                styles: {
+                    modern: "Hiện đại & Sang trọng",
+                    minimal: "Tối giản",
+                    wood: "Gỗ ấm cúng",
+                    luxury: "Sang trọng cao cấp",
+                    industrial: "Công nghiệp",
+                    classic: "Cổ điển thanh lịch",
+                    natural: "Thiền tự nhiên",
+                    scandinavian: "Bắc Âu",
+                    midcentury: "Hiện đại giữa thế kỷ",
+                    artdeco: "Art Deco"
+                }
+            },
+            cta: {
+                ready: "Bạn đã sẵn sàng chưa?",
+                apply: "Đăng ký tư vấn"
+            },
+            case_detail: {
+                challenge_solution: "Challenge & Solution",
+                condition_title: "CONDITION (Điều kiện hiện trường)",
+                design_plan_title: "DESIGN & PLAN (Ý đồ thiết kế)",
+                back_to_list: "← Quay lại danh sách",
+                construction_detail: "Construction Detail",
+                carpentry: "Mộc (Carpentry)",
+                tile: "Gạch (Tile)",
+                finish_check: "Hoàn thiện (Finish Check)",
+                project_transformation: "PROJECT TRANSFORMATION",
+                slider_instruction: "* Di chuyển thanh trượt để xem sự thay đổi trước và sau khi thi công.",
+                detail_view: "DETAIL VIEW",
+                project_not_found: "Không tìm thấy dự án"
             }
         }
     }

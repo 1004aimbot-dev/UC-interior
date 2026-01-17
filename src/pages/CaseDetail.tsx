@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { caseStudies } from '../data/cases';
 import ScrollReveal from '../components/ui/ScrollReveal';
 import BeforeAfterSlider from '../components/ui/BeforeAfterSlider';
@@ -7,14 +8,15 @@ import BeforeAfterSlider from '../components/ui/BeforeAfterSlider';
 const CaseDetail: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
+    const { t } = useTranslation();
     const project = caseStudies.find(p => p.id === id);
 
     if (!project) {
         return (
             <div className="container section-padding text-center">
-                <h2>Project Not Found</h2>
+                <h2>{t('case_detail.project_not_found')}</h2>
                 <button className="btn btn-primary" onClick={() => navigate('/cases')}>
-                    Back to List
+                    {t('case_detail.back_to_list_btn')}
                 </button>
             </div>
         );
@@ -38,8 +40,8 @@ const CaseDetail: React.FC = () => {
                     <div className="container">
                         <ScrollReveal>
                             <span style={{ color: 'var(--color-accent-blue)', letterSpacing: '0.1em' }}>PROJECT {id?.replace('project-', '')}</span>
-                            <h1 style={{ fontSize: '3rem', margin: '10px 0' }}>{project.title}</h1>
-                            <p style={{ fontSize: '1.2rem', color: '#ccc' }}>{project.location}</p>
+                            <h1 style={{ fontSize: '3rem', margin: '10px 0' }}>{t(`cases_data.${id?.replace('-', '')}.title`)}</h1>
+                            <p style={{ fontSize: '1.2rem', color: '#ccc' }}>{t(`cases_data.${id?.replace('-', '')}.location`)}</p>
                         </ScrollReveal>
                     </div>
                 </div>
@@ -51,53 +53,53 @@ const CaseDetail: React.FC = () => {
                     {/* Left Column: Story */}
                     <div>
                         <ScrollReveal>
-                            <h2 style={{ fontSize: '1.8rem', marginBottom: '30px', borderBottom: '1px solid #333', paddingBottom: '10px' }}>Challenge & Solution</h2>
+                            <h2 style={{ fontSize: '1.8rem', marginBottom: '30px', borderBottom: '1px solid #333', paddingBottom: '10px' }}>{t('case_detail.challenge_solution')}</h2>
                         </ScrollReveal>
 
                         <ScrollReveal delay={0.1}>
                             <div style={{ marginBottom: '40px' }}>
-                                <h3 style={{ color: '#888', fontSize: '0.9rem', marginBottom: '10px' }}>CONDITION (현장 조건)</h3>
-                                <p style={{ lineHeight: '1.8' }}>{project.condition}</p>
+                                <h3 style={{ color: '#888', fontSize: '0.9rem', marginBottom: '10px' }}>{t('case_detail.condition_title')}</h3>
+                                <p style={{ lineHeight: '1.8' }}>{t(`cases_data.${id?.replace('-', '')}.condition`)}</p>
                             </div>
                         </ScrollReveal>
 
                         <ScrollReveal delay={0.2}>
                             <div style={{ marginBottom: '40px' }}>
-                                <h3 style={{ color: '#888', fontSize: '0.9rem', marginBottom: '10px' }}>DESIGN & PLAN (설계 의도)</h3>
-                                <p style={{ lineHeight: '1.8' }}>{project.design}</p>
+                                <h3 style={{ color: '#888', fontSize: '0.9rem', marginBottom: '10px' }}>{t('case_detail.design_plan_title')}</h3>
+                                <p style={{ lineHeight: '1.8' }}>{t(`cases_data.${id?.replace('-', '')}.design`)}</p>
                             </div>
                         </ScrollReveal>
 
                         <button className="btn btn-outline" onClick={() => navigate('/cases')} style={{ marginTop: '20px' }}>
-                            ← 목록으로 돌아가기
+                            {t('case_detail.back_to_list')}
                         </button>
                     </div>
 
                     {/* Right Column: Tech Specs & Details */}
                     <div>
                         <ScrollReveal delay={0.2}>
-                            <h2 style={{ fontSize: '1.8rem', marginBottom: '30px', borderBottom: '1px solid #333', paddingBottom: '10px' }}>Construction Detail</h2>
+                            <h2 style={{ fontSize: '1.8rem', marginBottom: '30px', borderBottom: '1px solid #333', paddingBottom: '10px' }}>{t('case_detail.construction_detail')}</h2>
                         </ScrollReveal>
 
                         <div style={{ backgroundColor: '#222', padding: '30px', borderRadius: '4px' }}>
                             <ScrollReveal delay={0.3}>
                                 <div style={{ marginBottom: '25px' }}>
-                                    <h4 style={{ color: 'var(--color-accent-blue)', marginBottom: '8px' }}>목공 (Carpentry)</h4>
-                                    <p style={{ color: '#ccc', fontSize: '0.95rem' }}>{project.carpentry}</p>
+                                    <h4 style={{ color: 'var(--color-accent-blue)', marginBottom: '8px' }}>{t('case_detail.carpentry')}</h4>
+                                    <p style={{ color: '#ccc', fontSize: '0.95rem' }}>{t(`cases_data.${id?.replace('-', '')}.carpentry`)}</p>
                                 </div>
                             </ScrollReveal>
 
                             <ScrollReveal delay={0.4}>
                                 <div style={{ marginBottom: '25px' }}>
-                                    <h4 style={{ color: 'var(--color-accent-blue)', marginBottom: '8px' }}>타일 (Tile)</h4>
-                                    <p style={{ color: '#ccc', fontSize: '0.95rem' }}>{project.tile}</p>
+                                    <h4 style={{ color: 'var(--color-accent-blue)', marginBottom: '8px' }}>{t('case_detail.tile')}</h4>
+                                    <p style={{ color: '#ccc', fontSize: '0.95rem' }}>{t(`cases_data.${id?.replace('-', '')}.tile`)}</p>
                                 </div>
                             </ScrollReveal>
 
                             <ScrollReveal delay={0.5}>
                                 <div>
-                                    <h4 style={{ color: 'var(--color-accent-blue)', marginBottom: '8px' }}>마감 (Finish Check)</h4>
-                                    <p style={{ color: '#ccc', fontSize: '0.95rem' }}>{project.finish}</p>
+                                    <h4 style={{ color: 'var(--color-accent-blue)', marginBottom: '8px' }}>{t('case_detail.finish_check')}</h4>
+                                    <p style={{ color: '#ccc', fontSize: '0.95rem' }}>{t(`cases_data.${id?.replace('-', '')}.finish`)}</p>
                                 </div>
                             </ScrollReveal>
                         </div>
@@ -109,7 +111,7 @@ const CaseDetail: React.FC = () => {
                     <div style={{ marginTop: '100px' }}>
                         <ScrollReveal width="100%">
                             <h2 style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '50px' }}>
-                                PROJECT TRANSFORMATION
+                                {t('case_detail.project_transformation')}
                             </h2>
                         </ScrollReveal>
 
@@ -120,7 +122,7 @@ const CaseDetail: React.FC = () => {
                                 altText={`${project.title} Before and After`}
                             />
                             <p style={{ textAlign: 'center', marginTop: '20px', color: '#888', fontStyle: 'italic' }}>
-                                * 슬라이더를 움직여 시공 전후 변화를 확인해보세요.
+                                {t('case_detail.slider_instruction')}
                             </p>
                         </ScrollReveal>
                     </div>
@@ -130,7 +132,7 @@ const CaseDetail: React.FC = () => {
                 <div style={{ marginTop: '100px' }}>
                     <ScrollReveal width="100%">
                         <h2 style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '50px' }}>
-                            DETAIL VIEW
+                            {t('case_detail.detail_view')}
                         </h2>
                     </ScrollReveal>
 

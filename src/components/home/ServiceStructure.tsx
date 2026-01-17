@@ -21,10 +21,10 @@ const ServiceStructure: React.FC = () => {
                             <span className={styles.cardSub}>{t('service.carpentry_sub')}</span>
                         </div>
                         <ul className={styles.list}>
-                            <li>벽체 (Walls)</li>
-                            <li>천장 (Ceilings)</li>
-                            <li>구조 (Structure)</li>
-                            <li>기준선 (Guidelines)</li>
+                            <li>{t('service.items.walls')}</li>
+                            <li>{t('service.items.ceilings')}</li>
+                            <li>{t('service.items.structure')}</li>
+                            <li>{t('service.items.guidelines')}</li>
                         </ul>
                     </div>
 
@@ -34,10 +34,10 @@ const ServiceStructure: React.FC = () => {
                         <div className={styles.integrationBox}>
                             <h4 className={styles.integrationTitle}>{t('service.integration')}</h4>
                             <ul className={styles.integrationList}>
-                                <li>단차</li>
-                                <li>접점</li>
-                                <li>줄눈</li>
-                                <li>방수</li>
+                                <li>{t('service.items.level_diff')}</li>
+                                <li>{t('service.items.contact_point')}</li>
+                                <li>{t('service.items.grout')}</li>
+                                <li>{t('service.items.waterproofing')}</li>
                             </ul>
                         </div>
                     </div>
@@ -49,10 +49,10 @@ const ServiceStructure: React.FC = () => {
                             <span className={styles.cardSub}>{t('service.tile_sub')}</span>
                         </div>
                         <ul className={styles.list}>
-                            <li>벽 (Wall Tiling)</li>
-                            <li>바닥 (Floor Tiling)</li>
-                            <li>욕실 (Bathroom)</li>
-                            <li>마감 (Finishing)</li>
+                            <li>{t('service.items.wall_tiling')}</li>
+                            <li>{t('service.items.floor_tiling')}</li>
+                            <li>{t('service.items.bathroom')}</li>
+                            <li>{t('service.items.finishing')}</li>
                         </ul>
                     </div>
                 </div>
