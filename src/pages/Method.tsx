@@ -6,7 +6,7 @@ const Method: React.FC = () => {
 
     return (
         <div className="bg-concrete-wrapper" style={{
-            backgroundImage: `url('/src/assets/images/bg_construction_blur.png')`,
+            backgroundImage: `url('/images/bg_construction_blur.png')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundAttachment: 'fixed',
@@ -37,11 +37,11 @@ const Method: React.FC = () => {
 
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '40px' }}>
                             <ScrollReveal delay={0.4}>
-                                <img src="/src/assets/images/method_laser_level.png" alt="Laser Leveling" style={{ width: '100%', borderRadius: '4px', border: '1px solid #333' }} />
+                                <img src="/images/method_laser_level.png" alt="Laser Leveling" style={{ width: '100%', borderRadius: '4px', border: '1px solid #333' }} />
                                 <p style={{ fontSize: '0.8rem', color: '#888', marginTop: '5px' }}>{t('method.laser_level')}</p>
                             </ScrollReveal>
                             <ScrollReveal delay={0.5}>
-                                <img src="/src/assets/images/method_tiling_process.png" alt="Tiling Process" style={{ width: '100%', borderRadius: '4px', border: '1px solid #333' }} />
+                                <img src="/images/method_tiling_process.png" alt="Tiling Process" style={{ width: '100%', borderRadius: '4px', border: '1px solid #333' }} />
                                 <p style={{ fontSize: '0.8rem', color: '#888', marginTop: '5px' }}>{t('method.high_end_tiling')}</p>
                             </ScrollReveal>
                         </div>

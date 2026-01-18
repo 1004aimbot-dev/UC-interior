@@ -9,7 +9,7 @@ const WorkCases: React.FC = () => {
 
     return (
         <div className="bg-concrete-wrapper" style={{
-            backgroundImage: `url('/src/assets/images/bg_construction_blur.png')`,
+            backgroundImage: `url('/images/bg_construction_blur.png')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundAttachment: 'fixed',

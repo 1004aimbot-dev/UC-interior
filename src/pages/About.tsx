@@ -6,7 +6,7 @@ const About: React.FC = () => {
 
     return (
         <div className="bg-navy-wrapper" style={{
-            backgroundImage: `url('/src/assets/images/bg_construction_blur.png')`,
+            backgroundImage: `url('/images/bg_construction_blur.png')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundAttachment: 'fixed',
@@ -41,7 +41,7 @@ const About: React.FC = () => {
                             <ScrollReveal width="100%" delay={0.1}>
                                 <div style={{ marginBottom: '30px', overflow: 'hidden', borderRadius: '4px' }}>
                                     <img
-                                        src="/src/assets/images/about_team_silhouette.png"
+                                        src="/images/about_team_silhouette.png"
                                         alt="Y2K Brothers Team"
                                         style={{ width: '100%', maxHeight: '400px', objectFit: 'cover', filter: 'grayscale(30%)' }}
                                     />

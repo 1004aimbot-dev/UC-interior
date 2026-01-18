@@ -28,9 +28,9 @@ export const caseStudies: CaseStudy[] = [
         tile: "600x1200 대형 포세린 타일을 졸리컷(면치기) 시공으로 마감했습니다. 목공에서 잡아준 칼각 코너에 맞춰 타일 라인을 1mm 오차 범위 내로 정렬했습니다.",
         finish: "도배와 타일이 만나는 지점의 마이너스 몰딩 처리, 욕실 젠다이 졸리컷 라인 정렬 상태를 중점적으로 검수했습니다.",
         images: {
-            main: "/src/assets/images/case01_main.png",
+            main: "/images/case01_main.png",
             before: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2531&auto=format&fit=crop", // Construction site sample
-            after: ["/src/assets/images/case01_detail_1.png", "/src/assets/images/case01_detail_2.png"]
+            after: ["/images/case01_detail_1.png", "/images/case01_detail_2.png"]
         }
     },
     {
@@ -44,9 +44,9 @@ export const caseStudies: CaseStudy[] = [
         tile: "1200x1200 대형 텍스처 타일을 사용. 곡선 벽체와 바닥이 만나는 지점의 정밀 재단 시공이 핵심이었습니다.",
         finish: "곡선 부위의 도장 마감 퀄리티와 타일 메지(줄눈)의 톤 앤 매너 일체화에 집중했습니다.",
         images: {
-            main: "/src/assets/images/case02_main.png",
+            main: "/images/case02_main.png",
             before: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2670&auto=format&fit=crop", // Rough concrete sample
-            after: ["/src/assets/images/case02_detail_1.png"]
+            after: ["/images/case02_detail_1.png"]
         }
     }
 ];

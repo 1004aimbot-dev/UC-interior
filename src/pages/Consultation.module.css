@@ -1,6 +1,6 @@
 .pageWrapper {
     min-height: 100vh;
-    background-image: url('/src/assets/images/bg_construction_blur.png');
+    background-image: url('/images/bg_construction_blur.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

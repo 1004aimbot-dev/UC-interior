@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import styles from './Hero.module.css';
 // import heroBg from '../../assets/images/uc_hero_bg.png';
-import heroBg from '../../assets/images/hero_sample_simulation.png'; // Simulation Sample
+// import heroBg from '../../assets/images/hero_sample_simulation.png'; // Simulation Sample
 import ScrollReveal from '../ui/ScrollReveal';
 
 const Hero: React.FC = () => {
@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
         <section className={styles.heroSection}>
             {/* Background Image Layer */}
             <div className={styles.heroBg}>
-                <img src={heroBg} alt="Y2K Interior Construction Detail" className={styles.heroBgImage} />
+                <img src="/images/hero_sample_simulation.png" alt="Y2K Interior Construction Detail" className={styles.heroBgImage} />
                 <div className={styles.overlay}></div>
             </div>
 
