@@ -23,12 +23,24 @@ const CaseCard: React.FC<CaseCardProps> = ({ data }) => {
                 </div>
             </div>
             <div className={styles.content}>
-                <div className={styles.meta}>
-                    <span className={styles.id}>{data.id.replace('project-', 'PROJECT ')}</span>
-                    <span className={styles.location}>{t(`cases_data.${data.id.replace('-', '')}.location`)}</span>
+                <div className="meta">
+                    <span className={styles.id}>{data.id.startsWith('project-') ? data.id.replace('project-', 'PROJECT ') : 'PROJECT'}</span>
+                    <span className={styles.location}>
+                        {data.id.startsWith('project-')
+                            ? t(`cases_data.${data.id.replace('-', '')}.location`)
+                            : data.location}
+                    </span>
                 </div>
-                <h3 className={styles.title}>{t(`cases_data.${data.id.replace('-', '')}.title`)}</h3>
-                <p className={styles.summary}>{t(`cases_data.${data.id.replace('-', '')}.summary`)}</p>
+                <h3 className={styles.title}>
+                    {data.id.startsWith('project-')
+                        ? t(`cases_data.${data.id.replace('-', '')}.title`)
+                        : data.title}
+                </h3>
+                <p className={styles.summary}>
+                    {data.id.startsWith('project-')
+                        ? t(`cases_data.${data.id.replace('-', '')}.summary`)
+                        : data.summary}
+                </p>
             </div>
         </Link>
     );

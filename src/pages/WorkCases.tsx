@@ -18,8 +18,10 @@ const WorkCases: React.FC = () => {
 
         const q = query(collection(db, 'cases'), orderBy('createdAt', 'desc'));
         const unsubscribe = onSnapshot(q, (snapshot) => {
+            console.log("Firestore snapshot size:", snapshot.size); // Debug
             const fetchedCases: CaseStudy[] = snapshot.docs.map(doc => {
                 const data = doc.data();
+                console.log("Fetched doc data:", data); // Debug
                 return {
                     id: doc.id,
                     title: data.title,
@@ -38,6 +40,7 @@ const WorkCases: React.FC = () => {
                     location: data.location || 'Unknown'
                 } as CaseStudy;
             });
+            console.log("Final dynamic cases:", fetchedCases); // Debug
             setDynamicCases(fetchedCases);
         });
 

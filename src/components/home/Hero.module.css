@@ -82,9 +82,10 @@
 }
 
 .headline {
-    font-size: 4.2rem;
-    /* Larger impact */
-    line-height: 1.1;
+    font-size: 3.9rem;
+    /* Reduced by ~5px (was 4.2rem) */
+    line-height: 1.4;
+    /* Increased (was 1.1) */
     font-weight: 900;
     margin-bottom: var(--spacing-lg);
     color: var(--color-text-primary);
@@ -126,7 +127,8 @@
 
 @media (max-width: 768px) {
     .headline {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+        /* Reduced by ~5px (was 2.5rem) */
     }
 
     .description {

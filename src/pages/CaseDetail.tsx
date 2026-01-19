@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { caseStudies } from '../data/cases';
+import { db } from '../firebase';
+import { doc, getDoc } from 'firebase/firestore';
+import { caseStudies, type CaseStudy } from '../data/cases';
 import ScrollReveal from '../components/ui/ScrollReveal';
 import BeforeAfterSlider from '../components/ui/BeforeAfterSlider';
 
@@ -9,11 +11,61 @@ const CaseDetail: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
     const { t } = useTranslation();
-    const project = caseStudies.find(p => p.id === id);
+
+    // State to hold the project data (either from static or dynamic)
+    const [project, setProject] = React.useState<CaseStudy | undefined>(undefined);
+    const [loading, setLoading] = React.useState(true);
+
+    React.useEffect(() => {
+        const fetchProject = async () => {
+            if (!id) return;
+
+            // 1. Try finding in static data
+            const staticProject = caseStudies.find(p => p.id === id);
+            if (staticProject) {
+                setProject(staticProject);
+                setLoading(false);
+                return;
+            }
+
+            // 2. Try fetching from Firestore
+            try {
+                if (!db) throw new Error("Firebase not initialized");
+                const docRef = doc(db, 'cases', id);
+                const docSnap = await getDoc(docRef);
+
+                if (docSnap.exists()) {
+                    const data = docSnap.data();
+                    const sanitizedProject = {
+                        id: docSnap.id,
+                        ...data,
+                        images: {
+                            main: data.images?.main || '/images/default_case.png',
+                            before: data.images?.before,
+                            after: Array.isArray(data.images?.after) ? data.images.after : (data.images?.after ? [data.images.after] : [])
+                        }
+                    } as CaseStudy;
+                    setProject(sanitizedProject);
+                } else {
+                    console.log("No such document!");
+                }
+            } catch (error) {
+                console.error("Error fetching project:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchProject();
+    }, [id]);
+
+    if (loading) {
+        return <div className="container section-padding text-center" style={{ color: '#fff', paddingTop: '100px' }}>Loading...</div>;
+    }
 
     if (!project) {
         return (
-            <div className="container section-padding text-center">
+            <div className="container section-padding text-center" style={{ color: '#fff', paddingTop: '100px' }}>
                 <h2>{t('case_detail.project_not_found')}</h2>
                 <button className="btn btn-primary" onClick={() => navigate('/cases')}>
                     {t('case_detail.back_to_list_btn')}
@@ -21,6 +73,23 @@ const CaseDetail: React.FC = () => {
             </div>
         );
     }
+
+    // Safely handle translation keys for static vs dynamic content
+    // Static projects have keys like 'cases_data.project01.title'
+    // Dynamic projects have raw strings in 'project.title'
+    const getField = (field: keyof CaseStudy) => {
+        const value = project[field];
+        // If it's a dynamic project (from DB), return the value directly
+        // If it's static, it might need translation, but our interface defines strings.
+        // The current static implementation relies on 'cases_data.id.field' logic in JSX.
+        // We need to unify this.
+        // Simple heuristic: if project.id starts with 'project-', use translation.
+        // Otherwise (Firestore ID), use raw value.
+        if (project.id.startsWith('project-')) {
+            return t(`cases_data.${project.id.replace('-', '')}.${field}`);
+        }
+        return value;
+    };
 
     return (
         <div style={{ backgroundColor: '#1a1a1a', minHeight: '100vh', color: '#fff', paddingTop: '80px' }}>
@@ -39,9 +108,9 @@ const CaseDetail: React.FC = () => {
                 }}>
                     <div className="container">
                         <ScrollReveal>
-                            <span style={{ color: 'var(--color-accent-blue)', letterSpacing: '0.1em' }}>PROJECT {id?.replace('project-', '')}</span>
-                            <h1 style={{ fontSize: '3rem', margin: '10px 0' }}>{t(`cases_data.${id?.replace('-', '')}.title`)}</h1>
-                            <p style={{ fontSize: '1.2rem', color: '#ccc' }}>{t(`cases_data.${id?.replace('-', '')}.location`)}</p>
+                            <span style={{ color: 'var(--color-accent-blue)', letterSpacing: '0.1em' }}>PROJECT</span>
+                            <h1 style={{ fontSize: '3rem', margin: '10px 0' }}>{getField('title')}</h1>
+                            <p style={{ fontSize: '1.2rem', color: '#ccc' }}>{getField('location')}</p>
                         </ScrollReveal>
                     </div>
                 </div>
@@ -59,14 +128,14 @@ const CaseDetail: React.FC = () => {
                         <ScrollReveal delay={0.1}>
                             <div style={{ marginBottom: '40px' }}>
                                 <h3 style={{ color: '#888', fontSize: '0.9rem', marginBottom: '10px' }}>{t('case_detail.condition_title')}</h3>
-                                <p style={{ lineHeight: '1.8' }}>{t(`cases_data.${id?.replace('-', '')}.condition`)}</p>
+                                <p style={{ lineHeight: '1.8' }}>{getField('condition')}</p>
                             </div>
                         </ScrollReveal>
 
                         <ScrollReveal delay={0.2}>
                             <div style={{ marginBottom: '40px' }}>
                                 <h3 style={{ color: '#888', fontSize: '0.9rem', marginBottom: '10px' }}>{t('case_detail.design_plan_title')}</h3>
-                                <p style={{ lineHeight: '1.8' }}>{t(`cases_data.${id?.replace('-', '')}.design`)}</p>
+                                <p style={{ lineHeight: '1.8' }}>{getField('design')}</p>
                             </div>
                         </ScrollReveal>
 
@@ -85,21 +154,21 @@ const CaseDetail: React.FC = () => {
                             <ScrollReveal delay={0.3}>
                                 <div style={{ marginBottom: '25px' }}>
                                     <h4 style={{ color: 'var(--color-accent-blue)', marginBottom: '8px' }}>{t('case_detail.carpentry')}</h4>
-                                    <p style={{ color: '#ccc', fontSize: '0.95rem' }}>{t(`cases_data.${id?.replace('-', '')}.carpentry`)}</p>
+                                    <p style={{ color: '#ccc', fontSize: '0.95rem' }}>{getField('carpentry')}</p>
                                 </div>
                             </ScrollReveal>
 
                             <ScrollReveal delay={0.4}>
                                 <div style={{ marginBottom: '25px' }}>
                                     <h4 style={{ color: 'var(--color-accent-blue)', marginBottom: '8px' }}>{t('case_detail.tile')}</h4>
-                                    <p style={{ color: '#ccc', fontSize: '0.95rem' }}>{t(`cases_data.${id?.replace('-', '')}.tile`)}</p>
+                                    <p style={{ color: '#ccc', fontSize: '0.95rem' }}>{getField('tile')}</p>
                                 </div>
                             </ScrollReveal>
 
                             <ScrollReveal delay={0.5}>
                                 <div>
                                     <h4 style={{ color: 'var(--color-accent-blue)', marginBottom: '8px' }}>{t('case_detail.finish_check')}</h4>
-                                    <p style={{ color: '#ccc', fontSize: '0.95rem' }}>{t(`cases_data.${id?.replace('-', '')}.finish`)}</p>
+                                    <p style={{ color: '#ccc', fontSize: '0.95rem' }}>{getField('finish')}</p>
                                 </div>
                             </ScrollReveal>
                         </div>
@@ -118,8 +187,8 @@ const CaseDetail: React.FC = () => {
                         <ScrollReveal width="100%" delay={0.2}>
                             <BeforeAfterSlider
                                 beforeImage={project.images.before}
-                                afterImage={project.images.main} // Using main image as the 'after' for comparison
-                                altText={`${project.title} Before and After`}
+                                afterImage={project.images.after?.[0] || project.images.main} // Prefer specific after image, fallback to main
+                                altText={`${getField('title')} Before and After`}
                             />
                             <p style={{ textAlign: 'center', marginTop: '20px', color: '#888', fontStyle: 'italic' }}>
                                 {t('case_detail.slider_instruction')}
@@ -137,7 +206,7 @@ const CaseDetail: React.FC = () => {
                     </ScrollReveal>
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '20px' }}>
-                        {project.images.after.map((img, idx) => (
+                        {project.images.after?.map((img, idx) => (
                             <ScrollReveal key={idx} delay={0.2 + (idx * 0.1)} width="100%">
                                 <div style={{ height: '400px', overflow: 'hidden', borderRadius: '4px' }}>
                                     <img
