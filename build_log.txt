@@ -1,0 +1,9 @@
+[36mvite v7.3.1 [32mbuilding client environment for production...[36m[39m
+transforming...
+
+../../assets/images/bg_texture_concrete.png referenced in ../../assets/images/bg_texture_concrete.png didn't resolve at build time, it will remain unchanged to be resolved at runtime
+
+../../assets/images/bg_texture_wood.png referenced in ../../assets/images/bg_texture_wood.png didn't resolve at build time, it will remain unchanged to be resolved at runtime
+
+../../assets/images/bg_abstract_navy.png referenced in ../../assets/images/bg_abstract_navy.png didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[32m✓[39m 557 modules transformed.

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { db } from '../firebase';
@@ -77,7 +77,8 @@ const CaseDetail: React.FC = () => {
     // Safely handle translation keys for static vs dynamic content
     // Static projects have keys like 'cases_data.project01.title'
     // Dynamic projects have raw strings in 'project.title'
-    const getField = (field: keyof CaseStudy) => {
+    // Exclude 'images' from keyof to ensure return type is string
+    const getField = (field: keyof Omit<CaseStudy, 'images'>): string => {
         const value = project[field];
         // If it's a dynamic project (from DB), return the value directly
         // If it's static, it might need translation, but our interface defines strings.
@@ -88,7 +89,7 @@ const CaseDetail: React.FC = () => {
         if (project.id.startsWith('project-')) {
             return t(`cases_data.${project.id.replace('-', '')}.${field}`);
         }
-        return value;
+        return value as string;
     };
 
     return (
