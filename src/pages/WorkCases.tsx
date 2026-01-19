@@ -1,11 +1,51 @@
-import React from 'react';
-import { caseStudies } from '../data/cases';
+import React, { useEffect, useState } from 'react';
+import { caseStudies, type CaseStudy } from '../data/cases';
 import CaseCard from '../components/cases/CaseCard';
 import ScrollReveal from '../components/ui/ScrollReveal';
 import { useTranslation } from 'react-i18next';
+import { db } from '../firebase';
+import { collection, onSnapshot, query, orderBy } from 'firebase/firestore';
 
 const WorkCases: React.FC = () => {
     const { t } = useTranslation();
+    const [dynamicCases, setDynamicCases] = useState<CaseStudy[]>([]);
+
+    useEffect(() => {
+        if (!db) {
+            console.warn("Firebase db not initialized. Using static data only.");
+            return;
+        }
+
+        const q = query(collection(db, 'cases'), orderBy('createdAt', 'desc'));
+        const unsubscribe = onSnapshot(q, (snapshot) => {
+            const fetchedCases: CaseStudy[] = snapshot.docs.map(doc => {
+                const data = doc.data();
+                return {
+                    id: doc.id,
+                    title: data.title,
+                    description: data.summary,
+                    summary: data.summary,
+                    condition: data.condition || '',
+                    design: data.design || '',
+                    carpentry: data.carpentry || '',
+                    tile: data.tile || '',
+                    finish: data.finish || '',
+                    images: {
+                        main: data.images?.main || '/images/default_case.png',
+                        before: data.images?.before,
+                        after: Array.isArray(data.images?.after) ? data.images.after : (data.images?.after ? [data.images.after] : [])
+                    },
+                    location: data.location || 'Unknown'
+                } as CaseStudy;
+            });
+            setDynamicCases(fetchedCases);
+        });
+
+        return () => unsubscribe();
+    }, []);
+
+    // Combine static and dynamic cases (Dynamic first)
+    const allCases = [...dynamicCases, ...caseStudies];
 
     return (
         <div className="bg-concrete-wrapper" style={{
@@ -35,7 +75,7 @@ const WorkCases: React.FC = () => {
                         gap: 'var(--spacing-lg)',
                         justifyContent: 'center'
                     }}>
-                        {caseStudies.map((study, index) => (
+                        {allCases.map((study, index) => (
                             <ScrollReveal key={study.id} delay={index * 0.1}>
                                 <CaseCard data={study} />
                             </ScrollReveal>

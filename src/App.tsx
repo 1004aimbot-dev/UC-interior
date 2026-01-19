@@ -34,14 +34,16 @@ import Method from './pages/Method';
 import About from './pages/About';
 import CaseDetail from './pages/CaseDetail';
 
-// Placeholder for Consultation and Details (Will implement Detail next step if approved)
+// Placeholder for Consultation and Details
 import Consultation from './pages/Consultation';
-import Admin from './pages/Admin';
 import AIPreview from './pages/AIPreview';
-
 // Mobile Landing Page
 import MobileLanding from './pages/MobileLanding';
 import { useMobileRedirect } from './hooks/useMobileRedirect';
+
+// Admin Pages
+import Admin from './pages/Admin'; // Ensure Admin is imported if used
+import AdminCase from './pages/AdminCase';
 
 function App() {
   useMobileRedirect();
@@ -58,7 +60,10 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="consultation" element={<Consultation />} />
         <Route path="ai-preview" element={<AIPreview />} />
+
+        {/* Admin Routes */}
         <Route path="admin" element={<Admin />} />
+        <Route path="admin/cases" element={<AdminCase />} />
       </Route>
     </Routes>
   );

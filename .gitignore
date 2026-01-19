@@ -25,3 +25,8 @@ dist-ssr
 
 # Cloudflare Pages Functions local secrets
 .dev.vars
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
